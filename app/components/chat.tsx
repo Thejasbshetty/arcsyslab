@@ -88,17 +88,17 @@ export function Chat() {
           </div>
         </ScrollArea>
         <div className="border-t border-border p-4">
-          <div className="flex space-x-2">
-            <Input
-              className="flex-1 bg-secondary border-0 text-sm"
-              placeholder="Message"
-              type="text"
-            />
-            <Button size="icon" className="bg-[#F3AE9F] text-[#2C2C2C] hover:bg-[#F3AE9F]/90">
-              <Send className="h-4 w-4" />
-            </Button>
-          </div>
+        <div className="flex space-x-2">
+          <Input
+            className="flex-1 bg-secondary border-0 text-sm"
+            placeholder="Message"
+            type="text"
+          />
+          <Button size="icon" className="bg-[#F3AE9F] text-[#2C2C2C] hover:bg-[#F3AE9F]/90">
+            <Send className="h-4 w-4" />
+          </Button>
         </div>
+      </div>
       </div>
     )
   }
