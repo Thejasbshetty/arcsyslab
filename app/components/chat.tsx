@@ -10,7 +10,7 @@ import { useState } from "react"
 
 export function Chat() {
     // romoved unwanted components 
-    const [messages, setMessages] = useState([
+    const [messages] = useState([
       {
         role: 'assistant',
         content: 'Your order according to application yes?',
