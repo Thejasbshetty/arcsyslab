@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 import { ScrollArea } from "./ui/scroll-area";
 import { Sheet, SheetContent } from "./ui/sheet";
 import { UserAvatar } from "./user-avatar";
-import { Plus, X } from "lucide-react";
+import { Plus } from "lucide-react";
 
 interface MobileSidebarProps {
   open: boolean;
