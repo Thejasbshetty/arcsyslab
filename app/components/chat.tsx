@@ -9,6 +9,7 @@ import { ArrowLeft, Send, Trash2 } from 'lucide-react'
 import { useState } from "react"
 
 export function Chat() {
+    // romoved unwanted components 
     const [messages, setMessages] = useState([
       {
         role: 'assistant',
