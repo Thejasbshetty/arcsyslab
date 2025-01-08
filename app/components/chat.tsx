@@ -22,6 +22,7 @@ interface Message {
 
 export function Chat({ activeChat }: ChatProps) {
   const [messages, setMessages] = useState<Message[]>([]); // Use Message type
+  const [newMessage, setNewMessage] = useState(''); // Manage input field value
 
   useEffect(() => {
     // Simulate loading messages for the active chat
@@ -40,6 +41,21 @@ export function Chat({ activeChat }: ChatProps) {
       },
     ]);
   }, [activeChat]);
+
+  // Function to handle sending a new message
+  const sendMessage = () => {
+    if (newMessage.trim() === '') return; // Prevent sending empty messages
+
+    const newMsg: Message = {
+      role: 'user',
+      content: newMessage,
+      name: 'User',
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    };
+
+    setMessages([...messages, newMsg]); // Add new message to the chat
+    setNewMessage(''); // Clear the input field
+  };
 
   return (
     <div className="flex flex-col h-full rounded-2xl overflow-hidden bg-[#1C1C1C]">
@@ -105,11 +121,20 @@ export function Chat({ activeChat }: ChatProps) {
       <div className="p-4">
         <div className="flex space-x-2">
           <Input
-            className="flex-1 bg-[#2C2C2C] border-0 text-sm text-white placeholder-gray-400"
+            className="flex-1 bg-[#2C2C2C] border-0 text-sm text-white placeholder-gray-400 rounded-full"
             placeholder="Message"
             type="text"
+            value={newMessage}
+            onChange={(e) => setNewMessage(e.target.value)} // Update input value
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') sendMessage(); // Send message on Enter key
+            }}
           />
-          <Button size="icon" className="bg-[#FFB7A0] text-black hover:bg-[#FFB7A0]/90">
+          <Button
+            size="icon"
+            className="bg-[#FFB7A0] text-black hover:bg-[#FFB7A0]/90 rounded-full"
+            onClick={sendMessage}
+          >
             <Send className="h-4 w-4" />
           </Button>
         </div>
