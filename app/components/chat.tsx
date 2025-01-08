@@ -12,8 +12,16 @@ interface ChatProps {
   activeChat: string;
 }
 
+// Define the structure of a message
+interface Message {
+  role: 'user' | 'assistant';
+  content: string;
+  name: string;
+  timestamp: string;
+}
+
 export function Chat({ activeChat }: ChatProps) {
-  const [messages, setMessages] = useState<any[]>([]);
+  const [messages, setMessages] = useState<Message[]>([]); // Use Message type
 
   useEffect(() => {
     // Simulate loading messages for the active chat
@@ -61,9 +69,7 @@ export function Chat({ activeChat }: ChatProps) {
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`flex ${
-                message.role === 'user' ? 'justify-end items-end' : 'justify-start'
-              }`}
+              className={`flex ${message.role === 'user' ? 'justify-end items-end' : 'justify-start'}`}
             >
               <div
                 className={`flex ${message.role === 'user' ? 'flex-row-reverse' : ''} items-end space-x-2 max-w-[80%]`}
@@ -80,9 +86,7 @@ export function Chat({ activeChat }: ChatProps) {
                 <div className="flex flex-col gap-1">
                   <Card
                     className={`p-3 ${
-                      message.role === 'user'
-                        ? 'bg-[#FFB7A0] text-black'
-                        : 'bg-[#2C2C2C] text-white'
+                      message.role === 'user' ? 'bg-[#FFB7A0] text-black' : 'bg-[#2C2C2C] text-white'
                     }`}
                   >
                     <p className="text-sm">{message.content}</p>
