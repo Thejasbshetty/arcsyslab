@@ -60,21 +60,23 @@ export function Chat({ activeChat }: ChatProps) {
   return (
     <div className="flex flex-col h-full rounded-2xl overflow-hidden bg-[#1C1C1C]">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 bg-[#2C2C2C]">
+      <div className="flex items-center justify-between px-4 py-3 bg-black">
         <div className="flex items-center space-x-3">
           <UserAvatar
             name={activeChat}
             image="https://s3-alpha-sig.figma.com/img/d491/d06a/4663198a91f8a512885819053f01fa64?Expires=1737331200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AwrG6nexEsCN~4cbPKPj1SSUHn92ueI4g6NlPHwQNVEm8t46dzVXPqUSlRnuHAuMI85MYN42x~yuwUbKNkq2gtbJFowSJwpLIq7vOHVCesMiUmI5sJqf4IWISVh~6Q3SNNZzwXEwMrJEejCZWf7HT8zu2X3DZ0q8qWl1W9jYTAnRHP35dWwdswPALljPgvfT9Uu28hkkwzpZeBLlfjC-YmjvBPBovu91b4z5StEBn9r0LBk6jCqL1IQEGY4mHK4~kpOYbAHa9cmWdiJ1brcz5eZES186V4Xk2MJQ7c7P4yRAhskM9xV99mkI90FVTkBK7JjSadNM4m5WUqwl9cEk6g__"
             className="h-8 w-8"
           />
-          <span className="text-sm font-medium text-white">{activeChat}</span>
+          <span className="text-base font-medium text-white">{activeChat}</span>
         </div>
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+          <Button variant="ghost" size="sm" className="text-white hover:bg-white/10 space-x-2">
             <ArrowLeft className="h-5 w-5" />
+            <span>Back</span>
           </Button>
-          <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white space-x-2">
+          <Button variant="ghost" size="sm" className="text-white hover:bg-white/10 space-x-2">
             <Trash2 className="h-5 w-5" />
+            <span>Delete</span>
           </Button>
         </div>
       </div>
